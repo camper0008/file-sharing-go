@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+body {
+    background-color: #282828;
+}
+
+h1 {
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    color: #dadada;
+}
+
+.container {
+    display: flex;
+    width: max-content;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
+.text {
+    display: block;
+    
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.2rem;
+    text-align: left;
+    color: #dadada;
+    
+    width: 100%;
+    margin: 0;
+    margin-bottom: 0.5em;
+    padding: 0;
+    
+    border: none;
+    background-color: transparent;
+}
+
+.interact {
+    text-decoration: none;
+    color: #fff;
+}
+
+.interact:hover {
+    cursor: pointer;
+    font-style: italic;
+}
+
+input#file-upload:focus ~ label#file-upload-label,
+.interact:focus {
+    text-decoration: 1px underline;
+    outline: none;
+}
+
+.file {
+    margin-left: 2ch;
+}
+
+.file::before {
+    content: "> ";
+    font-style: normal;
+}
+
+.file:hover::before {
+    font-style: normal;
+}
+
+input#file-upload {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    display: block;
+}
+
