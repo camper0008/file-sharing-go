@@ -6,6 +6,7 @@ import (
 	"io"
 	"io/ioutil"
 	"log"
+	"net"
 	"net/http"
 	"os"
 )
@@ -105,6 +106,19 @@ func createDirIfNotExists() {
 	}
 }
 
+// Get preferred outbound ip of this machine
+func getOutboundIP() net.IP {
+	conn, err := net.Dial("udp", "8.8.8.8:80")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer conn.Close()
+
+	localAddr := conn.LocalAddr().(*net.UDPAddr)
+
+	return localAddr.IP
+}
+
 func main() {
 	createDirIfNotExists()
 	filelist()
@@ -112,6 +126,15 @@ func main() {
 	upload()
 	clear()
 	statics()
-	fmt.Printf("Listening on port %d\n", 8080)
-	log.Fatal(http.ListenAndServe(":8080", nil))
+
+	port := 8080
+	for {
+		listener, err := net.Listen("tcp", ":"+fmt.Sprint(port))
+		if err != nil {
+			port++
+			continue
+		}
+		fmt.Printf("Listening on %s:%d\n", getOutboundIP(), listener.Addr().(*net.TCPAddr).Port)
+		log.Fatal(http.Serve(listener, nil))
+	}
 }
