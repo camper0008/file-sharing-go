@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link href="style.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet" />
     </head>
     <body>
         <h1>upload files</h1>
         <div class="container">
-            <form enctype='multipart/form-data' action='api/upload' method='POST'>
-                <input id="file-upload" required name='files' type='file' multiple>
-                <label class="text interact" id="file-upload-label" for="file-upload">select files</label>
-                <input class="text interact" name='file-submit' type='submit' value='upload files'>
+            <form
+                enctype="multipart/form-data"
+                action="api/upload"
+                method="POST"
+            >
+                <input
+                    id="file-upload"
+                    required
+                    name="files"
+                    type="file"
+                    multiple
+                />
+                <label
+                    class="text interact"
+                    id="file-upload-label"
+                    for="file-upload"
+                    >select files</label
+                >
+                <input
+                    class="text interact"
+                    name="file-submit"
+                    type="submit"
+                    value="upload files"
+                />
             </form>
             <button id="file-clear" class="text interact">clear files</button>
+            <button id="file-download-all" class="text interact">
+                download all files
+            </button>
             <p class="text">files:</p>
             <div id="file-container" class="container"></div>
         </div>
