@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 
 body {
     background-color: #282828;
 }
 
 h1 {
-    font-family: 'Roboto Mono', monospace;
+    font-family: "Roboto Mono", monospace;
     text-align: center;
     color: #dadada;
 }
@@ -19,17 +19,17 @@ h1 {
 
 .text {
     display: block;
-    
-    font-family: 'Roboto Mono', monospace;
+
+    font-family: "Roboto Mono", monospace;
     font-size: 1.2rem;
     text-align: left;
     color: #dadada;
-    
+
     width: 100%;
     margin: 0;
     margin-bottom: 0.5em;
     padding: 0;
-    
+
     border: none;
     background-color: transparent;
 }
@@ -71,4 +71,3 @@ input#file-upload {
     height: 0;
     display: block;
 }
-
